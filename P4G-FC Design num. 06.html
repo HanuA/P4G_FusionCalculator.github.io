@@ -1,0 +1,1615 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Persona 4: Golden Fusion Calculator</title>
+
+        <script src="https://arantius.github.io/persona-fusion-calculator/data4golden.js"></script>
+
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://api.cajthaml.eu/uploads/reset_595b8cd7ad.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <style>
+            body{
+                font-family: 'Open Sans Condensed', sans-serif;
+                text-transform: uppercase;
+                color: #9c9c9c;
+                font-size: 1.4em;
+
+                background-color: #fdd621;
+            }
+            .container{
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                min-height: 100vh;
+            }
+            #con1{
+                display: flex;
+                justify-content: space-evenly;
+
+                background-color: #2d2d2f;
+
+                width: auto;
+
+                user-select: none;
+            }
+            #con2, .con2{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                width: auto;
+            }
+            #con2{
+                user-select: none;
+            }
+            .persona, #persona{
+                display: grid;
+                grid-template-columns: 10% auto 20%;
+                justify-items: center;
+                align-items: center;
+                text-align: center;
+
+                font-size: 1.5em;
+
+                padding: 10px;
+                margin-bottom: 15px;
+                border-radius: 50px;
+
+                background-color: rgba(255, 255, 255, 0.6);
+
+                width: 80%;
+
+                cursor: pointer;
+            }
+            .persona:last-child{
+                margin-bottom: 250px;
+            }
+            .persona:hover{
+                background-color: rgba(255, 255, 255, 0.7);
+
+                transition: all .3s ease-in;
+            }
+            #persona{
+                background-color: #2d2d2f;
+                color: #fdd621;
+                margin: 30px;
+                margin-bottom: 30px;
+
+                cursor: default;
+            }
+            #persona *:hover{
+                background-color: #fdd621;
+                color: #2d2d2f;
+                padding: 0px 10px;
+                border-radius: 5px;
+
+                cursor: pointer;
+
+                transition: all .1s ease-in;
+            }
+            #con3{
+                display: flex;
+
+
+                justify-content: space-evenly;
+                align-items: center;
+
+                background-color: #2d2d2f;
+
+                height: 90px;
+                width: auto;
+
+                font-size: 0.7em;
+            }
+            .p4{
+                display: flex;
+                flex-wrap: nowrap;
+
+                align-items: center;
+
+                color: white;
+                font-size: 1.5em;
+
+                width: auto;
+
+                margin-top: 5px;
+                margin-bottom: 5px;
+
+                cursor: default;
+            }
+            .p4 img{
+                height: 90px;
+            }
+            .search{
+                display: flex;
+
+                align-self: center;
+                
+                width: auto;
+            }
+            .search div, input{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                background-color: #4b4b4b;
+                padding: 15px;
+                margin: 2px;
+
+                color: #9d9d9d;
+                font-size: 1.2em;
+
+                height: 25px;
+                width: 25px;
+
+                border-radius: 2px;
+            }
+            input{
+                width: 200px;
+
+                border: none;
+                border-radius: 2px;
+            }
+            input:focus{
+                background-color: #fdd621;
+                color: #2d2d2f;
+
+                outline: none;
+
+                transition: all .3s ease-in;
+            }
+            footer{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+            .mentions a{
+                text-decoration: none;
+                color: #9c9c9c;
+            }
+            .mentions div{
+                padding: 3px;
+            }
+            .mentions div a:hover{
+                color: #fdd621;
+            }
+            @media (max-width: 1000px){
+                .persona:first-child *:hover{
+                padding: 0px 3px;
+            }
+            }
+            @media (max-width: 720px) {
+            #con3{
+                font-size: 0.6em;
+            }
+            .persona, #persona{
+                width: 95%;
+            }
+            #con1{
+                font-size: 0.6em;
+                text-align: center;
+
+                flex-wrap: wrap;
+
+                background-color: #2d2d2f;
+
+                width: auto;
+            }
+            input{
+                width: 80vw;
+            }
+            .search{
+                padding-bottom: 7px;
+            }
+            }
+            @media (max-width: 620px) {
+            #con1{
+                font-size: 0.6em;
+                text-align: center;
+            }
+            #con3{
+                font-size: 0.5em;
+            }
+            .persona, #persona{
+                font-size: 1em;
+            }
+            }
+            @media (max-width: 500px) {
+            #con1{
+                font-size: 0.8em;
+
+                text-align: center;
+            }
+            #con3{
+                font-size: 0.5em;
+            }
+            input{
+                width: 75vw;
+            }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div id="con1">
+                    <div class="p4">
+                        <img src="P4G-FC .Logo.png" alt="P4 Golden Logo">
+                        <div>fusion calculator</div>
+                    </div>
+                    <div class="search">
+                        <input id="search" type="text" onkeyup="fsearch()" placeholder="Search"> 
+                        <div><i class="fas fa-search"></i></div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div id="con2">
+                    <div id="persona">
+                        <div id="lvl">level</div>
+                        <div id="name">name</div>
+                        <div id="arcana">arcana</div>
+                    </div>                    
+                </div>
+                <div class="con2">
+                    <div class="persona">
+                        <div class="lvl">55</div>
+                        <div class="name">Abaddon</div>
+                        <div class="arcana">Tower</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">72</div>
+                        <div class="name">Alice</div>
+                        <div class="arcana">Death</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">70</div>
+                        <div class="name">Alilat</div>
+                        <div class="arcana">Empress</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">41</div>
+                        <div class="name">Alraune</div>
+                        <div class="arcana">Moon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">18</div>
+                        <div class="name">Ame-no-Uzume</div>
+                        <div class="arcana">Aeon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">58</div>
+                        <div class="name">Ananta</div>
+                        <div class="arcana">Fortune</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">20</div>
+                        <div class="name">Andra</div>
+                        <div class="arcana">Moon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">4</div>
+                        <div class="name">Angel</div>
+                        <div class="arcana">Justice</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">59</div>
+                        <div class="name">Anubis</div>
+                        <div class="arcana">Judgement</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">15</div>
+                        <div class="name">Anzu</div>
+                        <div class="arcana">Heirophant</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">4</div>
+                        <div class="name">Apsaras</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">18</div>
+                        <div class="name">Ara Mitama</div>
+                        <div class="arcana">Chariot</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">73</div>
+                        <div class="name">Arahabaki</div>
+                        <div class="arcana">Hermit</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">11</div>
+                        <div class="name">Archangel</div>
+                        <div class="arcana">Justice</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">90</div>
+                        <div class="name">Ardha</div>
+                        <div class="arcana">Judgement</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">25</div>
+                        <div class="name">Ares</div>
+                        <div class="arcana">Chariot</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">86</div>
+                        <div class="name">Asura</div>
+                        <div class="arcana">Sun</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">72</div>
+                        <div class="name">Atavaka</div>
+                        <div class="arcana">Chariot</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">65</div>
+                        <div class="name">Atropos</div>
+                        <div class="arcana">Fortune</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">82</div>
+                        <div class="name">Attis</div>
+                        <div class="arcana">Hanged Man</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">77</div>
+                        <div class="name">Baal Zebul</div>
+                        <div class="arcana">Moon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">47</div>
+                        <div class="name">Baphomet</div>
+                        <div class="arcana">Jester</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">65</div>
+                        <div class="name">Barong</div>
+                        <div class="arcana">Emperor</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">81</div>
+                        <div class="name">Beelzebub</div>
+                        <div class="arcana">Devil</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">68</div>
+                        <div class="name">Belial</div>
+                        <div class="arcana">Devil</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">61</div>
+                        <div class="name">Belphegor</div>
+                        <div class="arcana">Devil</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">15</div>
+                        <div class="name">Berith</div>
+                        <div class="arcana">Hanged Man</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">38</div>
+                        <div class="name">Black Frost</div>
+                        <div class="arcana">Fool</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">62</div>
+                        <div class="name">Byakko</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">52</div>
+                        <div class="name">Cerberus</div>
+                        <div class="arcana">Heirophant</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">62</div>
+                        <div class="name">Chernobog</div>
+                        <div class="arcana">Jester</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">44</div>
+                        <div class="name">Clotho</div>
+                        <div class="arcana">Fortune</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">46</div>
+                        <div class="name">Cu Chulainn</div>
+                        <div class="arcana">Tower</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">10</div>
+                        <div class="name">Cu Sith</div>
+                        <div class="arcana">Sun</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">64</div>
+                        <div class="name">Cybele</div>
+                        <div class="arcana">Lovers</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">60</div>
+                        <div class="name">Daisoujou</div>
+                        <div class="arcana">Heirophant</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">46</div>
+                        <div class="name">Decarabia</div>
+                        <div class="arcana">Fool</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">39</div>
+                        <div class="name">Dis</div>
+                        <div class="arcana">Magician</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">38</div>
+                        <div class="name">Dominion</div>
+                        <div class="arcana">Justice</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">12</div>
+                        <div class="name">Eligor</div>
+                        <div class="arcana">Chariot</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">36</div>
+                        <div class="name">Flauros</div>
+                        <div class="arcana">Heirophant</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">6</div>
+                        <div class="name">Forneus</div>
+                        <div class="arcana">Hermit</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">35</div>
+                        <div class="name">Fortuna</div>
+                        <div class="arcana">Fortune</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">80</div>
+                        <div class="name">Futsunushi</div>
+                        <div class="arcana">Chariot</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">43</div>
+                        <div class="name">Fuu-ki</div>
+                        <div class="arcana">Star</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">44</div>
+                        <div class="name">Gabriel</div>
+                        <div class="arcana">Empress</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">50</div>
+                        <div class="name">Ganesha</div>
+                        <div class="arcana">Star</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">29</div>
+                        <div class="name">Ganga</div>
+                        <div class="arcana">Priestess</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">57</div>
+                        <div class="name">Garuda</div>
+                        <div class="arcana">Star</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">31</div>
+                        <div class="name">Gdon</div>
+                        <div class="arcana">Sun</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">40</div>
+                        <div class="name">Genbu</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">9</div>
+                        <div class="name">Ghoul</div>
+                        <div class="arcana">Death</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">48</div>
+                        <div class="name">Girimehkala</div>
+                        <div class="arcana">Moon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">34</div>
+                        <div class="name">Gorgon</div>
+                        <div class="arcana">Empress</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">20</div>
+                        <div class="name">Gurr</div>
+                        <div class="arcana">Jester</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">70</div>
+                        <div class="name">Hachiman</div>
+                        <div class="arcana">Heirophant</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">42</div>
+                        <div class="name">Hanuman</div>
+                        <div class="arcana">Strength</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">59</div>
+                        <div class="name">Hariti</div>
+                        <div class="arcana">Priestess</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">87</div>
+                        <div class="name">Helel</div>
+                        <div class="arcana">Star</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">66</div>
+                        <div class="name">Hell Biker</div>
+                        <div class="arcana">Hanged Man</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">22</div>
+                        <div class="name">High Pixie</div>
+                        <div class="arcana">Priestess</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">41</div>
+                        <div class="name">Hitokoto-Nushi</div>
+                        <div class="arcana">Hermit</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">45</div>
+                        <div class="name">Hokuto Seikun</div>
+                        <div class="arcana">Heirophant</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">68</div>
+                        <div class="name">Horus</div>
+                        <div class="arcana">Sun</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">25</div>
+                        <div class="name">Hua Po</div>
+                        <div class="arcana">Magician</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">28</div>
+                        <div class="name">Incubus</div>
+                        <div class="arcana">Devil</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">17</div>
+                        <div class="name">Ippon-Datara</div>
+                        <div class="arcana">Hermit</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">71</div>
+                        <div class="name">Ishtar</div>
+                        <div class="arcana">Lovers</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">79</div>
+                        <div class="name">Isis</div>
+                        <div class="arcana">Empress</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">1</div>
+                        <div class="name">Izanagi</div>
+                        <div class="arcana">Fool</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">91</div>
+                        <div class="name">Izanagi-no-Okami</div>
+                        <div class="arcana">World</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">16</div>
+                        <div class="name">Jack Frost</div>
+                        <div class="arcana">Magician</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">61</div>
+                        <div class="name">Jatayu</div>
+                        <div class="arcana">Sun</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">62</div>
+                        <div class="name">Jinn</div>
+                        <div class="arcana">Magician</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">74</div>
+                        <div class="name">Kaguya</div>
+                        <div class="arcana">Aeon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">24</div>
+                        <div class="name">Kaiwan</div>
+                        <div class="arcana">Star</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">50</div>
+                        <div class="name">Kali</div>
+                        <div class="arcana">Strength</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">67</div>
+                        <div class="name">Kartikeya</div>
+                        <div class="arcana">Star</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">48</div>
+                        <div class="name">Kikuri-Hime</div>
+                        <div class="arcana">Priestess</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">54</div>
+                        <div class="name">Kin-ki</div>
+                        <div class="arcana">Chariot</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">22</div>
+                        <div class="name">King Frost</div>
+                        <div class="arcana">Emperor</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">58</div>
+                        <div class="name">Kingu</div>
+                        <div class="arcana">Aeon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">76</div>
+                        <div class="name">Kohryu</div>
+                        <div class="arcana">Heirophant</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">55</div>
+                        <div class="name">Kumbhanda</div>
+                        <div class="arcana">Jester</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">48</div>
+                        <div class="name">Kurama Tengu</div>
+                        <div class="arcana">Hermit</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">44</div>
+                        <div class="name">Kushinada-Hime</div>
+                        <div class="arcana">Aeon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">28</div>
+                        <div class="name">Kusi Mitama</div>
+                        <div class="arcana">Strength</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">51</div>
+                        <div class="name">Lachesis</div>
+                        <div class="arcana">Fortune</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">65</div>
+                        <div class="name">Lakshmi</div>
+                        <div class="arcana">Aeon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">26</div>
+                        <div class="name">Lamia</div>
+                        <div class="arcana">Hermit</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">42</div>
+                        <div class="name">Leanan Sidhe</div>
+                        <div class="arcana">Lovers</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">21</div>
+                        <div class="name">Legion</div>
+                        <div class="arcana">Fool</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">10</div>
+                        <div class="name">Lilim</div>
+                        <div class="arcana">Devil</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">53</div>
+                        <div class="name">Lilith</div>
+                        <div class="arcana">Devil</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">40</div>
+                        <div class="name">Loa</div>
+                        <div class="arcana">Jester</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">64</div>
+                        <div class="name">Loki</div>
+                        <div class="arcana">Fool</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">93</div>
+                        <div class="name">Lucifer</div>
+                        <div class="arcana">Judgement</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">78</div>
+                        <div class="name">Mada</div>
+                        <div class="arcana">Magician</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">77</div>
+                        <div class="name">Magatsu Izanagi</div>
+                        <div class="arcana">Jester</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">78</div>
+                        <div class="name">Mahakala</div>
+                        <div class="arcana">Death</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">27</div>
+                        <div class="name">Makami</div>
+                        <div class="arcana">Hanged Man</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">62</div>
+                        <div class="name">Mara</div>
+                        <div class="arcana">Tower</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">69</div>
+                        <div class="name">Masakado</div>
+                        <div class="arcana">Tower</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">24</div>
+                        <div class="name">Matador</div>
+                        <div class="arcana">Death</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">66</div>
+                        <div class="name">Melchizedek</div>
+                        <div class="arcana">Justice</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">83</div>
+                        <div class="name">Metatron</div>
+                        <div class="arcana">Judgement</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">72</div>
+                        <div class="name">Michael</div>
+                        <div class="arcana">Judgement</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">31</div>
+                        <div class="name">Mithra</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">14</div>
+                        <div class="name">Mokoi</div>
+                        <div class="arcana">Death</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">46</div>
+                        <div class="name">Mot</div>
+                        <div class="arcana">Death</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">60</div>
+                        <div class="name">Mother Harlot</div>
+                        <div class="arcana">Empress</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">33</div>
+                        <div class="name">Mothman</div>
+                        <div class="arcana">Hermit</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">47</div>
+                        <div class="name">Narasimha</div>
+                        <div class="arcana">Sun</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">24</div>
+                        <div class="name">Narcissus</div>
+                        <div class="arcana">Aeon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">6</div>
+                        <div class="name">Nata Taishi</div>
+                        <div class="arcana">Chariot</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">63</div>
+                        <div class="name">Nebiros</div>
+                        <div class="arcana">Hermit</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">32</div>
+                        <div class="name">Neko Shogun</div>
+                        <div class="arcana">Star</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">55</div>
+                        <div class="name">Niddhoggr</div>
+                        <div class="arcana">Hermit</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">23</div>
+                        <div class="name">Nigi Mitama</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">72</div>
+                        <div class="name">Norn</div>
+                        <div class="arcana">Fortune</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">27</div>
+                        <div class="name">Nozuchi</div>
+                        <div class="arcana">Moon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">13</div>
+                        <div class="name">Obariyon</div>
+                        <div class="arcana">Fool</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">12</div>
+                        <div class="name">Oberon</div>
+                        <div class="arcana">Emperor</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">74</div>
+                        <div class="name">Odin</div>
+                        <div class="arcana">Emperor</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">7</div>
+                        <div class="name">Omoikane</div>
+                        <div class="arcana">Heirophant</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">82</div>
+                        <div class="name">Ongyo-ki</div>
+                        <div class="arcana">Hermit</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">30</div>
+                        <div class="name">Oni</div>
+                        <div class="arcana">Strength</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">8</div>
+                        <div class="name">Orobas</div>
+                        <div class="arcana">Magician</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">39</div>
+                        <div class="name">Orthrus</div>
+                        <div class="arcana">Hanged Man</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">31</div>
+                        <div class="name">Ose</div>
+                        <div class="arcana">Fool</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">41</div>
+                        <div class="name">Oukuninushi</div>
+                        <div class="arcana">Emperor</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">51</div>
+                        <div class="name">Pabilsag</div>
+                        <div class="arcana">Emperor</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">34</div>
+                        <div class="name">Pale Rider</div>
+                        <div class="arcana">Jester</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">37</div>
+                        <div class="name">Parvati</div>
+                        <div class="arcana">Priestess</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">37</div>
+                        <div class="name">Pazuzu</div>
+                        <div class="arcana">Devil</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">20</div>
+                        <div class="name">Phoenix</div>
+                        <div class="arcana">Sun</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">2</div>
+                        <div class="name">Pixie</div>
+                        <div class="arcana">Magician</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">27</div>
+                        <div class="name">Power</div>
+                        <div class="arcana">Justice</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">19</div>
+                        <div class="name">Principality</div>
+                        <div class="arcana">Justice</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">32</div>
+                        <div class="name">Pyro Jack</div>
+                        <div class="arcana">Magician</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">25</div>
+                        <div class="name">Queen Mab</div>
+                        <div class="arcana">Lovers</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">51</div>
+                        <div class="name">Quetzalcoatl</div>
+                        <div class="arcana">Aeon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">37</div>
+                        <div class="name">Raja Naga</div>
+                        <div class="arcana">Aeon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">23</div>
+                        <div class="name">Rakshasa</div>
+                        <div class="arcana">Strength</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">47</div>
+                        <div class="name">Rangda</div>
+                        <div class="arcana">Magician</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">53</div>
+                        <div class="name">Raphael</div>
+                        <div class="arcana">Lovers</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">11</div>
+                        <div class="name">Saki Mitama</div>
+                        <div class="arcana">Priestess</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">36</div>
+                        <div class="name">Samael</div>
+                        <div class="arcana">Death</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">84</div>
+                        <div class="name">Sandalphon</div>
+                        <div class="arcana">Moon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">5</div>
+                        <div class="name">Sandman</div>
+                        <div class="arcana">Strength</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">17</div>
+                        <div class="name">Sarasvati</div>
+                        <div class="arcana">Priestess</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">76</div>
+                        <div class="name">Satan</div>
+                        <div class="arcana">Judgement</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">31</div>
+                        <div class="name">Sati</div>
+                        <div class="arcana">Aeon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">75</div>
+                        <div class="name">Saturnus</div>
+                        <div class="arcana">Star</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">79</div>
+                        <div class="name">Scathach</div>
+                        <div class="arcana">Priestess</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">47</div>
+                        <div class="name">Seiryu</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">68</div>
+                        <div class="name">Seiten Taisei</div>
+                        <div class="arcana">Jester</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">9</div>
+                        <div class="name">Senri</div>
+                        <div class="arcana">Empress</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">34</div>
+                        <div class="name">Setanta</div>
+                        <div class="arcana">Emperor</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">68</div>
+                        <div class="name">Seth</div>
+                        <div class="arcana">Moon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">21</div>
+                        <div class="name">Shiisaa</div>
+                        <div class="arcana">Heirophant</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">56</div>
+                        <div class="name">Shiki-Ouji</div>
+                        <div class="arcana">Fool</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">80</div>
+                        <div class="name">Shiva</div>
+                        <div class="arcana">Tower</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">63</div>
+                        <div class="name">Siegfried</div>
+                        <div class="arcana">Strength</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">52</div>
+                        <div class="name">Skadi</div>
+                        <div class="arcana">Empress</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">2</div>
+                        <div class="name">Slime</div>
+                        <div class="arcana">Chariot</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">74</div>
+                        <div class="name">Sraosha</div>
+                        <div class="arcana">Justice</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">44</div>
+                        <div class="name">Succubus</div>
+                        <div class="arcana">Devil</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">57</div>
+                        <div class="name">Sui-ki</div>
+                        <div class="arcana">Moon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">77</div>
+                        <div class="name">Suparna</div>
+                        <div class="arcana">Sun</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">69</div>
+                        <div class="name">Surt</div>
+                        <div class="arcana">Magician</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">54</div>
+                        <div class="name">Suzaku</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">11</div>
+                        <div class="name">Sylph</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">27</div>
+                        <div class="name">Take-Minakata</div>
+                        <div class="arcana">Jester</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">53</div>
+                        <div class="name">Tam Lin</div>
+                        <div class="arcana">Sun</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">35</div>
+                        <div class="name">Taotie</div>
+                        <div class="arcana">Tower</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">56</div>
+                        <div class="name">Taowu</div>
+                        <div class="arcana">Hanged Man</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">65</div>
+                        <div class="name">Thor</div>
+                        <div class="arcana">Chariot</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">45</div>
+                        <div class="name">Thoth</div>
+                        <div class="arcana">Emperor</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">49</div>
+                        <div class="name">Throne</div>
+                        <div class="arcana">Justice</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">14</div>
+                        <div class="name">Titan</div>
+                        <div class="arcana">Strength</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">26</div>
+                        <div class="name">Titania</div>
+                        <div class="arcana">Empress</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">43</div>
+                        <div class="name">Triglav</div>
+                        <div class="arcana">Chariot</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">67</div>
+                        <div class="name">Trumpeter</div>
+                        <div class="arcana">Judgement</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">70</div>
+                        <div class="name">Tzitzimitl</div>
+                        <div class="arcana">Priestess</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">3</div>
+                        <div class="name">Ukobach</div>
+                        <div class="arcana">Devil</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">33</div>
+                        <div class="name">Undine</div>
+                        <div class="arcana">Lovers</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">29</div>
+                        <div class="name">Unicorn</div>
+                        <div class="arcana">Heirophant</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">58</div>
+                        <div class="name">Uriel</div>
+                        <div class="arcana">Justice</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">8</div>
+                        <div class="name">Valkyrie</div>
+                        <div class="arcana">Strength</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">71</div>
+                        <div class="name">Vasuki</div>
+                        <div class="arcana">Hanged Man</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">19</div>
+                        <div class="name">Vetala</div>
+                        <div class="arcana">Devil</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">33</div>
+                        <div class="name">Virtue</div>
+                        <div class="arcana">Justice</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">73</div>
+                        <div class="name">Vishnu</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">58</div>
+                        <div class="name">White Rider</div>
+                        <div class="arcana">Death</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">16</div>
+                        <div class="name">Xiezhai</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">18</div>
+                        <div class="name">Yaksini</div>
+                        <div class="arcana">Empress</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">34</div>
+                        <div class="name">Yamata-no-Orochi</div>
+                        <div class="arcana">Moon</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">40</div>
+                        <div class="name">Yatagarasu</div>
+                        <div class="arcana">Sun</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">49</div>
+                        <div class="name">Yatsufusa</div>
+                        <div class="arcana">Hanged Man</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">22</div>
+                        <div class="name">Yomotsu-Ikusa</div>
+                        <div class="arcana">Hanged Man</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">7</div>
+                        <div class="name">Yomotsu-Shikome</div>
+                        <div class="arcana">Fool</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">75</div>
+                        <div class="name">Yoshitsune</div>
+                        <div class="arcana">Tower</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">69</div>
+                        <div class="name">Yurlungur</div>
+                        <div class="arcana">Temperance</div>
+                    </div>
+                
+                    <div class="persona">
+                        <div class="lvl">90</div>
+                        <div class="name">Zaou-Gongen</div>
+                        <div class="arcana">Strength</div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div id="con3">
+                    <div class="mentions">
+                        <div>written by <a href="https://github.com/HanuA">filip hanuš</a></div>
+                        <div>original by <a href="https://github.com/arantius">arantius</a></div>
+                        <div>original code <a href="https://github.com/arantius/persona-fusion-calculator">here</a></div>
+                    </div>
+                    <div class="copyright">the "persona 4 golden" logo is a registered trademark of atlus co., ltd.</div>
+                </div>  
+            </footer>
+        </div>
+
+        <script>
+            //https://stackoverflow.com/questions/43821938/search-div-for-text
+            function fsearch(){
+                var input = document.getElementById("search");
+                var filter = input.value.toLowerCase();
+                var nodes = document.getElementsByClassName('persona');
+
+                for (i = 0; i < nodes.length; i++) {
+                    if (nodes[i].innerText.toLowerCase().includes(filter)) {
+                        nodes[i].style.display = "";
+
+
+                    }
+                    else { nodes[i].style.display = "none"; }
+                }
+            }
+            //-----------------------------------------------------------------
+
+            //http://jsfiddle.net/hibbard_eu/C2heg/
+            let sortlvl = document.getElementById('lvl');
+            let sortedLevel = 0;
+            sortlvl.onclick = function() {
+                if (sortedLevel == 0) {
+                    var $divs = $(".persona");
+
+                    sortedLevel = 1;
+
+                    var orderLevel = $divs.sort(function (a, b) {
+                        return ($(a).find(".lvl").text())-($(b).find(".lvl").text()) > ($(b).find(".lvl").text())-($(a).find(".lvl").text());
+                    });
+                    $(".con2").html(orderLevel);
+                }
+                else{
+                    var $divs = $(".persona");
+
+                    sortedLevel = 0;
+
+                    var orderLevel = $divs.sort(function (a, b) {
+                        return ($(a).find(".lvl").text())-($(b).find(".lvl").text()) < ($(b).find(".lvl").text())-($(a).find(".lvl").text());
+                    });
+                    $(".con2").html(orderLevel);
+                }
+            };
+
+            let sortname = document.getElementById('name');
+            let sortedName = 0;
+            sortname.onclick = function() {
+                if (sortedName == 0) {
+                    var $divs = $(".persona");
+
+                    sortedName = 1;
+
+                    var orderName = $divs.sort(function (a, b) {
+                        return $(a).find(".name").text() > $(b).find(".name").text();
+                    });
+                    $(".con2").html(orderName);
+                }
+                else{
+                    var $divs = $(".persona");
+
+                    sortedName = 0;
+
+                    var orderName = $divs.sort(function (a, b) {
+                        return $(a).find(".name").text() < $(b).find(".name").text();
+                    });
+                    $(".con2").html(orderName);
+                }
+            };
+
+            let sortarcana = document.getElementById('arcana');
+            let sortedArcana = 0;
+            sortarcana.onclick = function() {
+                if (sortedArcana == 0) {
+                    var $divs = $(".persona");
+
+                    sortedArcana = 1;
+
+                    var orderArcana = $divs.sort(function (a, b) {
+                        return $(a).find(".arcana").text() > $(b).find(".arcana").text();
+                    });
+                    $(".con2").html(orderArcana);
+                }
+                else{
+                    var $divs = $(".persona");
+
+                    sortedArcana = 0;
+
+                    var orderArcana = $divs.sort(function (a, b) {
+                        return $(a).find(".arcana").text() < $(b).find(".arcana").text();
+                    });
+                    $(".con2").html(orderArcana);
+                }
+            };
+            //-----------------------------------------------------------------
+
+
+            let personawindow = document.getElementsByClassName('persona');
+            for(i = 0; i < personawindow.length; i++) {
+                personawindow[i].onclick = function() {
+                    console.log("works")
+                }
+            }
+            
+
+        </script>
+
+    </body>
+</html>
