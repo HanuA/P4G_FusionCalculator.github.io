@@ -39,8 +39,9 @@
                     sortedLevel = 1;
 
                     var orderLevel = $divs.sort(function (a, b) {
-                        return ($(a).find(".lvl").text())-($(b).find(".lvl").text()) > ($(b).find(".lvl").text())-($(a).find(".lvl").text());
+                        return (($(a).find(".lvl").text()) - ($(b).find(".lvl").text()));
                     });
+
                     $(".con2").html(orderLevel);
                 }
                 else{
@@ -49,7 +50,7 @@
                     sortedLevel = 0;
 
                     var orderLevel = $divs.sort(function (a, b) {
-                        return ($(a).find(".lvl").text())-($(b).find(".lvl").text()) < ($(b).find(".lvl").text())-($(a).find(".lvl").text());
+                        return (($(b).find(".lvl").text()) - ($(a).find(".lvl").text()));
                     });
                     $(".con2").html(orderLevel);
                 }
