@@ -93,7 +93,6 @@
                     var orderName = $divs.sort(function (a, b) {
                         return $(a).find(".name").text() > $(b).find(".name").text();
                     });
-
                     $(".con2").html(orderName);
                 }
                 else{
@@ -117,9 +116,8 @@
                     sortedArcana = 1;
 
                     var orderArcana = $divs.sort(function (a, b) {
-                        return return $(a).find(".arcana").text() < $(b).find(".arcana").text();
+                        return $(a).find(".arcana").text() > $(b).find(".arcana").text();
                     });
-
                     $(".con2").html(orderArcana);
                 }
                 else{
@@ -128,7 +126,7 @@
                     sortedArcana = 0;
 
                     var orderArcana = $divs.sort(function (a, b) {
-                        return return $(a).find(".arcana").text() > $(b).find(".arcana").text();
+                        return $(a).find(".arcana").text() < $(b).find(".arcana").text();
                     });
                     $(".con2").html(orderArcana);
                 }
