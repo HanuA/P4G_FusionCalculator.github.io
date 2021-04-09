@@ -133,7 +133,7 @@
                     $(".con2").html(orderArcana);
                 }
             };
-            };
+            
             //-----------------------------------------------------------------
 
             let personawindow = document.getElementsByClassName('persona');
