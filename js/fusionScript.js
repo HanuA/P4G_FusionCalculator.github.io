@@ -90,21 +90,21 @@
 
                     sortedName = 1;
 
-                    var orderLevel = $divs.sort(function (a, b) {
+                    var orderName = $divs.sort(function (a, b) {
                         return (($(a).find(".lvl").text()) - ($(b).find(".lvl").text()));
                     });
 
-                    $(".con2").html(orderLevel);
+                    $(".con2").html(orderName);
                 }
                 else{
                     var $divs = $(".persona");
 
                     sortedName = 0;
 
-                    var orderLevel = $divs.sort(function (a, b) {
+                    var orderName = $divs.sort(function (a, b) {
                         return (($(b).find(".lvl").text()) - ($(a).find(".lvl").text()));
                     });
-                    $(".con2").html(orderLevel);
+                    $(".con2").html(orderName);
                 }
             };
 
@@ -116,11 +116,11 @@
 
                     sortedArcana = 1;
 
-                    var orderLevel = $divs.sort(function (a, b) {
+                    var orderArcana = $divs.sort(function (a, b) {
                         return (($(a).find(".lvl").text()) - ($(b).find(".lvl").text()));
                     });
 
-                    $(".con2").html(orderLevel);
+                    $(".con2").html(orderArcana);
                 }
                 else{
                     var $divs = $(".persona");
@@ -130,7 +130,7 @@
                     var orderLevel = $divs.sort(function (a, b) {
                         return (($(b).find(".lvl").text()) - ($(a).find(".lvl").text()));
                     });
-                    $(".con2").html(orderLevel);
+                    $(".con2").html(orderArcana);
                 }
             };
             };
