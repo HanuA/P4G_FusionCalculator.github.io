@@ -90,20 +90,21 @@
 
                     sortedName = 1;
 
-                    var orderName = $divs.sort(function (a, b) {
-                        return $(a).find(".name").text() > $(b).find(".name").text();
+                    var orderLevel = $divs.sort(function (a, b) {
+                        return (($(a).find(".lvl").text()) - ($(b).find(".lvl").text()));
                     });
-                    $(".con2").html(orderName);
+
+                    $(".con2").html(orderLevel);
                 }
                 else{
                     var $divs = $(".persona");
 
                     sortedName = 0;
 
-                    var orderName = $divs.sort(function (a, b) {
-                        return $(a).find(".name").text() < $(b).find(".name").text();
+                    var orderLevel = $divs.sort(function (a, b) {
+                        return (($(b).find(".lvl").text()) - ($(a).find(".lvl").text()));
                     });
-                    $(".con2").html(orderName);
+                    $(".con2").html(orderLevel);
                 }
             };
 
@@ -115,21 +116,23 @@
 
                     sortedArcana = 1;
 
-                    var orderArcana = $divs.sort(function (a, b) {
-                        return $(a).find(".arcana").text() > $(b).find(".arcana").text();
+                    var orderLevel = $divs.sort(function (a, b) {
+                        return (($(a).find(".lvl").text()) - ($(b).find(".lvl").text()));
                     });
-                    $(".con2").html(orderArcana);
+
+                    $(".con2").html(orderLevel);
                 }
                 else{
                     var $divs = $(".persona");
 
                     sortedArcana = 0;
 
-                    var orderArcana = $divs.sort(function (a, b) {
-                        return $(a).find(".arcana").text() < $(b).find(".arcana").text();
+                    var orderLevel = $divs.sort(function (a, b) {
+                        return (($(b).find(".lvl").text()) - ($(a).find(".lvl").text()));
                     });
-                    $(".con2").html(orderArcana);
+                    $(".con2").html(orderLevel);
                 }
+            };
             };
             //-----------------------------------------------------------------
 
