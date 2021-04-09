@@ -127,7 +127,7 @@
 
                     sortedArcana = 0;
 
-                    var orderLevel = $divs.sort(function (a, b) {
+                    var orderArcana = $divs.sort(function (a, b) {
                         return (($(a).find(".arcana").text()) < ($(b).find(".arcana").text()));
                     });
                     $(".con2").html(orderArcana);
