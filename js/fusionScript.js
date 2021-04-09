@@ -91,7 +91,7 @@
                     sortedName = 1;
 
                     var orderName = $divs.sort(function (a, b) {
-                        return (($(a).find(".lvl").text()) - ($(b).find(".lvl").text()));
+                        return (($(a).find(".name").text()) - ($(b).find(".name").text()));
                     });
 
                     $(".con2").html(orderName);
@@ -102,7 +102,7 @@
                     sortedName = 0;
 
                     var orderName = $divs.sort(function (a, b) {
-                        return (($(b).find(".lvl").text()) - ($(a).find(".lvl").text()));
+                        return (($(b).find(".name").text()) - ($(a).find(".name").text()));
                     });
                     $(".con2").html(orderName);
                 }
@@ -117,7 +117,7 @@
                     sortedArcana = 1;
 
                     var orderArcana = $divs.sort(function (a, b) {
-                        return (($(a).find(".lvl").text()) - ($(b).find(".lvl").text()));
+                        return (($(a).find(".arcana").text()) - ($(b).find(".arcana").text()));
                     });
 
                     $(".con2").html(orderArcana);
@@ -128,7 +128,7 @@
                     sortedArcana = 0;
 
                     var orderLevel = $divs.sort(function (a, b) {
-                        return (($(b).find(".lvl").text()) - ($(a).find(".lvl").text()));
+                        return (($(b).find(".arcana").text()) - ($(a).find(".arcana").text()));
                     });
                     $(".con2").html(orderArcana);
                 }
